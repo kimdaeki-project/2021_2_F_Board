@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 웹 사이트</title>
 </head>
 <body>
-	<h1>메인페이지</h1>
+	<script>
+	location.href='../member/login'
+	</script>
 </body>
 </html>
