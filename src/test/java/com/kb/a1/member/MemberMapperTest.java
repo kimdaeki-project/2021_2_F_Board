@@ -17,7 +17,7 @@ class MemberMapperTest {
 	//약관 리스트 테스트
 	//@Test
 	void selectTermstest() throws Exception{
-		ArrayList<TermsVO> list = memberMapper.selectTermsListTest();
+		List<TermsVO> list = memberMapper.selectTermsList();
 		System.out.println("출력 : " + list);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(list.get(i).getTerms_title());
