@@ -8,6 +8,10 @@
 
   		<typeAlias type="java.lang.Long" alias="Long"/>
   		<typeAlias type="java.util.List" alias="List"/>
+  		
+  		<typeAlias type="com.kb.a1.member.TermsVO" alias="TermsVO"/>
+  		
+  		
   	</typeAliases>
   
   </configuration>
