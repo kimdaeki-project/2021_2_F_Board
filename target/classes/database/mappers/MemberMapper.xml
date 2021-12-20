@@ -4,12 +4,111 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.kb.a1.member.MemberMapper">
-  
+  	<!-- 약관 목록 -->
   	<select id="selectTermsList" resultType="TermsVO">
   		SELECT * FROM TERMS
   	</select>
   	
+  	<!-- 아이디 중복 체크 -->
+  	<select id="idCheck" parameterType="String" resultType="Integer">
+	    SELECT IFNULL(COUNT(*),0)
+	    FROM MEMBER WHERE mem_userid=#{mem_userid}
+	</select>
   
+	<!-- 닉네임 중복 체크 -->
+	<select id="nicknameCheck" parameterType="String" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0)
+		FROM MEMBER WHERE mem_nickname=#{mem_nickname}
+	</select>
   
-  
+	<!-- 로그인 셀렉트
+	가져올 값들: 아이디, 닉네임, 인증여부, 인가레벨, 
+			접속일자, 로그인 회수, 운영자 여부 -->  
+  	<select id="getLogin" parameterType="MemberVO" resultType="MemberVO">
+  		SELECT mem_userid, mem_nickname, mem_cert, mem_auth, 
+  		mem_logtime, mem_logcount, mem_super
+  		FROM MEMBER
+  		WHERE mem_userid=#{mem_userid} AND mem_userpw=#{mem_userpw}
+  	</select>
+  	
+  	<!-- 로그인 정보 업데이트 -->
+  	<update id="updateLogin" parameterType="MemberVO">
+	  	UPDATE MEMBER
+		SET mem_logtime=now(), mem_logcount=mem_logcount+1
+		WHERE mem_userid=#{mem_userid}
+  	</update>
+  	
+  	<!-- 회원정보 가져오기 -->
+  	<select id="selectMemberList" resultType="MemberVO">
+  		SELECT mem_idx, mem_userid, mem_nickname, mem_email, 
+  			mem_status, mem_cert, mem_auth, mem_super, 
+  			mem_regtime, mem_droptime, mem_logtime, 
+  			mem_pwtime, mem_logcount 
+  		FROM MEMBER
+  		ORDER BY mem_idx ASC
+  	</select>
+  	
+  	<!-- 회원 생성 -->
+  	<insert id="insertMember" parameterType="MemberVO">
+  		INSERT INTO MEMBER
+  		(mem_idx, mem_userid, mem_userpw, mem_username, 
+  		mem_nickname, mem_gender, mem_email, mem_birth, 
+  		mem_tel, mem_zipcode, mem_address_1, mem_address_2, 
+  		mem_status, mem_cert, mem_auth, mem_super, 
+  		mem_regtime, mem_droptime, mem_logtime, 
+  		mem_pwtime, mem_logcount)		
+		
+		VALUES
+		(NULL, #{mem_userid}, #{mem_userpw}, #{mem_username}, 
+  		#{mem_nickname}, #{mem_gender}, #{mem_email}, #{mem_birth}, 
+  		#{mem_tel}, #{mem_zipcode}, #{mem_address_1}, #{mem_address_2}, 
+  		default, default, default, default, 
+  		now(), default, default, 
+  		default, default)
+  	</insert>
+  	
+  	<!-- 약관 생성 -->
+  	<insert id="insertTermsLog" parameterType="TermsLogVO">
+  		INSERT INTO TERMS_LOG
+  		(tlog_userid, tlog_check_1, tlog_check_2, 
+  		tlog_check_3, tlog_check_4, tlog_date)
+		
+		VALUES
+		(#{tlog_userid}, #{tlog_check_1}, #{tlog_check_2}, 
+		#{tlog_check_3}, #{tlog_check_4}, now())
+  	</insert>
+  	
+  	<!-- 계정 삭제 -->
+  	<delete id="deleteMember" parameterType="MemberVO">
+  		DELETE FROM MEMBER
+		WHERE mem_userid=#{mem_userid}
+  	</delete>
+  	
+  	<!-- 약관 정보 1개 가져오기 -->
+  	<select id="selectTerm" parameterType="TermsLogVO" resultType="TermsLogVO">
+  		select * from terms_log
+  		WHERE tlog_userid=#{tlog_userid}
+  	</select>
+  	
+  	<!-- 약관 정보 수정 -->
+  	<update id="updateTerms" parameterType="TermsLogVO">
+  		update terms_log
+
+  		set 
+  		tlog_check_1=#{tlog_check_1}
+  		,tlog_check_2=#{tlog_check_2}
+  		,tlog_check_3=#{tlog_check_3}
+  		,tlog_check_4=#{tlog_check_4}
+  		,tlog_date=now()
+  		WHERE tlog_userid=#{tlog_userid}
+  	</update>
+  	
+  	<!-- 회원 정보 select -->
+  	<select id="selectUpdate" parameterType="MemberVO" resultType="MemberVO">
+  		SELECT *
+  		FROM MEMBER
+  		WHERE mem_userid=#{mem_userid}
+  	
+  	</select>
+  	
   </mapper>

@@ -5,7 +5,8 @@
 
     
 <!-- footer begin -->
-<footer class="py-3 my-4">
+<div style="margin-top: 250px;">
+<footer class="py-3 my-5">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">메인</a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">공지사항</a></li>
@@ -15,4 +16,5 @@
     </ul>
     <p class="text-center text-muted">© 2021 KBOARD, Inc</p>
   </footer>
+</div>
 <!-- footer end -->

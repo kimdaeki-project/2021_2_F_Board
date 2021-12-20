@@ -1,10 +1,15 @@
 @charset "UTF-8";
-
+/* 백그라운드컬러 */
+.bg-title{
+	background: linear-gradient( to right, white,#B8D7FF, #E0EBFF, #EBF5FF, #F9FFFF, white );
+	margin-bottom: 40px;
+}
+/* 약관 제목 */
 .terms_title{
 	font-weight: bold;
 	margin-bottom: 5px;
 }
-
+/* 약관 내용 박스 */
 .textBox_term{
 	resize: none;
 	width: 100%;
@@ -19,4 +24,167 @@
     font-style:normal;
     border: 2px solid rgb(213, 194, 194);
     outline-color: #FE6B8B;
+}
+/* 스판-오른쪽 */
+.span-right{
+	text-align: right;
+	margin-bottom: 44px;
+	font-family: 돋움,arial;
+	font-size: 15px;
+    font-family:Verdana;
+    font-style:normal;
+}
+/* 스판-가운데 */
+.span-center{
+	text-align: center;
+	margin-bottom: 44px;
+	font-family: 돋움,arial;
+	font-size: 15px;
+    font-family:Verdana;
+    font-style:normal;
+}
+/* 스판-볼드 */
+.span-bold{
+	font-size: 16px;
+	font-weight: bold;
+}
+/* 체크박스 */
+.chk{
+	margin-left: 8px;
+	margin-right: 3px;
+}
+/* 버튼-오른쪽 */
+.btn-right{
+	float: right;
+}
+/* 버튼-가운데 */
+.btn-center{
+	display: block;
+	margin: auto;
+	width: 80px;
+	height: 40px;
+	font-size: large;
+}
+
+/* ------------------------------------------------ */
+/* joinForm.jsp css */
+
+
+/* 큰 버튼 */
+.btn-center-large{
+	display: block;
+	margin: auto;
+	width: 150px;
+	height: 50px;
+	font-size: large;
+}
+/* 인풋 가로 길이 60% */
+.width_60{
+	width: 60%;
+}
+/* 인풋 이메일 전용 */
+.email{
+	display: inline;
+	width: 35%;
+}
+.email_2{
+	display: inline;
+	width: 23%;
+}
+.email_3{
+	display: inline;
+	width: 25%;
+}
+/* 볼드체 */
+.bold{
+	font-weight: bold;
+}
+/* 블록처리 */
+.block{
+	display: block;
+}
+/* 레이블 마진 하단 */
+.form-check-label{
+	margin-bottom: 3px;
+}
+/* 스판-라디오 마진 조절 */
+.label-margin{
+	margin-left: 3px;
+	margin-right: 10px;
+}
+/* 선택입력사항 마진 */
+.margin-top{
+	margin-top: 30px;
+}
+.pilsu-end{
+	margin-top: 60px;
+}
+#year{
+	width: 100px;
+}
+.bg-white{
+	background-color: white;
+}
+.inline{
+	display: inline;
+}
+.errorMsg{
+	font-size: small;
+	color: red;
+}
+/* 회원가입 완료 */
+.completeMsg{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	text-align: center;
+	text-decoration: underline;
+}
+.completeMsg2{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+/* 이미지 */
+.dog{
+	width: 500px;
+	height: 440px;
+	display: inline;
+	margin: auto;
+	 animation: fadein 3s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}	
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }

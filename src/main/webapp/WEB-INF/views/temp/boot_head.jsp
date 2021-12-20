@@ -26,3 +26,13 @@
   	<!-- jquery CDN -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
   	
+  	
+  	<!-- datepicker css -->
+  	<link href="../resources/css/datepicker.min.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Air datepicker js -->
+    <script src="../resources/js/datepicker.js"></script> <!-- Air datepicker js -->
+    <script src="../resources/js/datepicker.ko.js"></script> <!-- 달력 한글 추가를 위해 커스텀 -->
+
+    
+    <!-- daum address API -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

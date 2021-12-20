@@ -1,7 +1,5 @@
 package com.kb.a1.member;
 
-import java.sql.Blob;
-
 import lombok.Data;
 
 @Data

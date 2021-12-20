@@ -38,17 +38,37 @@
 		        <li class="nav-item">
 		          <a class="nav-link" href="#">이벤트</a>
 		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="#">관리자게시판</a>
-		        </li>
-		    </ul>   
-		    <ul class="navbar-nav ms-auto mb-0 mb-lg-0">   	 
-		        <li class="nav-item">
-		       	 <a class="nav-link" href="/member/login" style="color: gray; font-weight: bold;">
-		       	  <img alt="login" src="/resources/images/icons/login_20px.jpg">
-		          로그인</a>
-		        </li>     	       
-			</ul>
+				<c:if test="${sessionScope.master eq 'Y'}">
+			        <li class="nav-item">
+			          <a class="nav-link" href="${pageContext.request.contextPath}/member/master" style="color: blue;">관리자게시판</a>
+			        </li>
+			    </c:if>        
+		    </ul>
+		    <c:choose>  
+        		<c:when test="${not empty member}">
+        			<ul class="navbar-nav ms-auto mb-0 mb-lg-0">
+	        			<li class="nav-item dropdown">
+				          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				            <span style="color: black; font-weight: bold;">${sessionScope.nickname}</span><span style="margin-left: 3px;">님</span>
+				          </a>	
+	        				<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			        			<li><a class="dropdown-item" href="${pageContext.request.contextPath}/member/mypage">마이페이지</a></li>
+				           	 	<li><a class="dropdown-item" href="${pageContext.request.contextPath}/member/logout">
+				            	<img alt="logout" src="/resources/images/icons/logout2_20px.png">로그아웃</a></li>            
+				        	</ul> 
+				        </li>
+			        </ul>   	
+        		</c:when>
+        		<c:otherwise>
+        			<ul class="navbar-nav ms-auto mb-0 mb-lg-0">  
+				        <li class="nav-item">
+				       	 <a class="nav-link" href="${pageContext.request.contextPath}/member/login" style="color: gray; font-weight: bold;">
+				       	  <img alt="login" src="/resources/images/icons/login_20px.jpg">
+				          로그인</a> 
+				        </li>
+			        </ul>        
+        		</c:otherwise>
+        	</c:choose>   
 	  	</div>
 	  	<!-- 네비게이션 top ul,li end -->
 	 </div>

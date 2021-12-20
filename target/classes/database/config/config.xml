@@ -8,9 +8,11 @@
 
   		<typeAlias type="java.lang.Long" alias="Long"/>
   		<typeAlias type="java.util.List" alias="List"/>
-  		
+  		<typeAlias type="java.lang.Integer" alias="Integer"/>
+  		<typeAlias type="java.lang.String" alias="String"/>
   		<typeAlias type="com.kb.a1.member.TermsVO" alias="TermsVO"/>
-  		
+  		<typeAlias type="com.kb.a1.member.TermsLogVO" alias="TermsLogVO"/>
+  		<typeAlias type="com.kb.a1.member.MemberVO" alias="MemberVO"/>
   		
   	</typeAliases>
   

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/* 애니메이션 */
+/* 
+1) 	animation-name : 사용자가 직접 지정한 이름, @keyframes 가 적용될 애니메이션의 이름
+2) 	스테이지 : from - to 로 0~100% 의 구간
+3) 	CSS 스타일 : 각 스테이지(구간)에 적용시킬 스타일 
+*/
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translate3d(0, 20%, 0);
+  }
+  to {
+      opacity: 1;
+      transform: translateZ(0);
+  }
+}
+.mainJumbo {
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-timing-function: easy-out;
+  animation-direction: alternate;
+}
+.memo {
+  animation-name: fadeInUp;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-timing-function: easy-in;
+  animation-direction: alternate;
+}
